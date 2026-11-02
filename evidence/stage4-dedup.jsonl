@@ -1,0 +1,21 @@
+{"seq":1,"at":4,"kind":"boot","stage":4,"crashed":false,"recovered":[]}
+{"seq":2,"at":11,"kind":"intake","eventId":"t1:0:message:A","result":"stored","note":"task A queued"}
+{"seq":3,"at":17,"kind":"intake","eventId":"t2:1:message:B","result":"stored","note":"task B queued"}
+{"seq":4,"at":22,"kind":"intake","eventId":"t1:2:followup:A","result":"stored","note":"appended to A state=queued"}
+{"seq":5,"at":44,"kind":"intake","eventId":"t1:3:cancel:A","result":"stored","note":"cancel on queued A -> cancelled immediately"}
+{"seq":6,"at":51,"kind":"task.boot","taskId":"B","resumedFrom":0,"recovery":false}
+{"seq":7,"at":72,"kind":"intake","eventId":"t3:4:message:C","result":"stored","note":"task C queued"}
+{"seq":8,"at":86,"kind":"reply","receiptId":"r-end-A","conversationId":"t1","messageId":"m-end-A","attempt":1,"channelMode":"dedup"}
+{"seq":9,"at":105,"kind":"task.boot","taskId":"C","resumedFrom":0,"recovery":false}
+{"seq":10,"at":110,"kind":"task.step","taskId":"B","step":1,"consumedInputs":[]}
+{"seq":11,"at":110,"kind":"task.terminal","taskId":"B","outcome":"completed"}
+{"seq":12,"at":114,"kind":"intake","eventId":"t1:50:followup:A","result":"filtered","note":"append filtered: task cancelled, already terminating"}
+{"seq":13,"at":127,"kind":"reply","receiptId":"r-end-B","conversationId":"t2","messageId":"m-end-B","attempt":1,"channelMode":"dedup"}
+{"seq":14,"at":134,"kind":"intake","eventId":"t1:51:message:D","result":"stored","note":"task D queued"}
+{"seq":15,"at":138,"kind":"task.step","taskId":"C","step":1,"consumedInputs":[]}
+{"seq":16,"at":138,"kind":"task.terminal","taskId":"C","outcome":"completed"}
+{"seq":17,"at":169,"kind":"reply","receiptId":"r-end-C","conversationId":"t3","messageId":"m-end-C","attempt":1,"channelMode":"dedup"}
+{"seq":18,"at":178,"kind":"task.boot","taskId":"D","resumedFrom":0,"recovery":false}
+{"seq":19,"at":196,"kind":"task.step","taskId":"D","step":1,"consumedInputs":[]}
+{"seq":20,"at":197,"kind":"task.terminal","taskId":"D","outcome":"completed"}
+{"seq":21,"at":220,"kind":"reply","receiptId":"r-end-D","conversationId":"t1","messageId":"m-end-D","attempt":1,"channelMode":"dedup"}
