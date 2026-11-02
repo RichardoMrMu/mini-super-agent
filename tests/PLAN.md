@@ -125,3 +125,5 @@ RED  : 仓库外 scratch 副本（仅复制 dist/channel-db.js + tests/02），�
   `C: assignment interrupted, task re-queued from step 0`。
 - `recovery-send.txt`：first exit=13；second 重发 `m-end-B` attempt=2
   （naive 窗口双发的可观察证据）；`A: cancelling->cancelled (no restart)`。
+
+

@@ -127,16 +127,16 @@
 
 | 模块 | 导出 | 形状 |
 | --- | --- | --- |
-| `types.ts` | `RunOptions` | `{ stage: 1\|2\|3\|4; eventsPath: string; stateDir: string; workers: number; channel: 'naive'\|'dedup'; outPath?: string }` |
+| `types.ts` | `RunOptions` | `{ stage: 1|2|3|4; eventsPath: string; stateDir: string; workers: number; channel: 'naive'|'dedup'; outPath?: string }` |
 | `engine-db.ts` | `EngineDb.open(path)` | `.tx(fn)` / `.close()` / tasks / inputs / steps / effects / receipts / meta 方法族 |
 | `channel-db.ts` | `ChannelDb.open(path, mode)` | `.send(messageId, conversationId, body, attempt, at) → {displayed, attempt}` / `.displayCount(messageId)` |
-| `lock.ts` | `new StateLock(stateDir)` | `.acquire() → 'acquired' \| 'refused-live-pid' \| 'refused-malformed-lock'` / `.release()` |
+| `lock.ts` | `new StateLock(stateDir)` | `.acquire() → 'acquired' | 'refused-live-pid' | 'refused-malformed-lock'` / `.release()` |
 | `schema.ts` | `loadEvents(path)` / `eventIdOf(e)` | 未知 key 即 throw `schema_v1: …`；`schema` 必须为 `"v1"` |
 
 ### 7.2 fixture schema
 
 `fixtures/events.json`：根 `{ "schema": "v1", "events": [事件数组] }`；事件字段
-`at(整数) / type(message\|followup\|cancel) / threadId / taskId / body`，
+`at(整数) / type(message|followup|cancel) / threadId / taskId / body`，
 仅 `message` 可带 `task: {steps≥1, stepMs≥0, spill:boolean}`；
 未知 key 拒绝。主 fixture 共 7 条事件（t1: A 任务→followup→cancel→晚到追问→新任务D；
 t2: B；t3: C）。crash-claim 场景另用 `fixtures/recovery-checkpoint.json`。
@@ -145,8 +145,8 @@ t2: B；t3: C）。crash-claim 场景另用 `fixtures/recovery-checkpoint.json`�
 
 | 接口 | 形状 |
 | --- | --- |
-| 运行 | `node dist/cli.js run --stage <1\|2\|3\|4> [--events f] [--state-dir d] [--workers N] [--channel naive\|dedup] [--out p]` |
-| 恢复场景 | `node dist/cli.js recovery --scenario <crash-step\|crash-send\|crash-claim> [--state-dir d] [--out p]` |
+| 运行 | `node dist/cli.js run --stage <1|2|3|4> [--events f] [--state-dir d] [--workers N] [--channel naive|dedup] [--out p]` |
+| 恢复场景 | `node dist/cli.js recovery --scenario <crash-step|crash-send|crash-claim> [--state-dir d] [--out p]` |
 | 只读自检 | `node dist/cli.js doctor --state-dir d`（JSON 输出，不改 state） |
 | 测试 | `npm test` = `npm run build && node --test tests/*.test.mjs` |
 | 崩溃注入 env | `MOCK_CRASH_AT_STEP=<task>:<step>`（step 开始 exit 13）；`MOCK_CRASH_AFTER_SEND=1`（send 后 ack 前 exit 13）；`MOCK_CRASH_AFTER_CLAIM=<task>:<step>`（tx#1 只读 snapshot 后、tx#2 checkpoint 前 exit 13） |
