@@ -1,0 +1,12 @@
+{
+  "schema": "v1",
+  "events": [
+    { "at": 0,  "type": "message",  "threadId": "t1", "taskId": "A", "body": "任务A：写一段两步骤的报告", "task": { "steps": 2, "stepMs": 20, "spill": true } },
+    { "at": 1,  "type": "message",  "threadId": "t2", "taskId": "B", "body": "任务B：快速单步小事",     "task": { "steps": 1, "stepMs": 10, "spill": true } },
+    { "at": 2,  "type": "followup", "threadId": "t1", "taskId": "A", "body": "补充：报告里加一节" },
+    { "at": 3,  "type": "cancel",   "threadId": "t1", "taskId": "A", "body": "停下任务A" },
+    { "at": 4,  "type": "message",  "threadId": "t3", "taskId": "C", "body": "任务C：收尾",             "task": { "steps": 1, "stepMs": 10, "spill": true } },
+    { "at": 50, "type": "followup", "threadId": "t1", "taskId": "A", "body": "A早已结束后的追问" },
+    { "at": 51, "type": "message",  "threadId": "t1", "taskId": "D", "body": "t1 线程上的新任务D",      "task": { "steps": 1, "stepMs": 10, "spill": true } }
+  ]
+}

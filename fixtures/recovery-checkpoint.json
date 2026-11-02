@@ -1,0 +1,1 @@
+{"schema":"v1","events":[{"at":0,"type":"message","threadId":"t1","taskId":"A","body":"task with two steps","task":{"steps":2,"stepMs":20,"spill":false}},{"at":30,"type":"followup","threadId":"t1","taskId":"A","body":"append lands during step1's model sleep; gated into step2's tx#1 snapshot"}]}
