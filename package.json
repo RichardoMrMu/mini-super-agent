@@ -1,0 +1,19 @@
+{
+  "name": "mini-super-agent",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Teaching repo: progressive mini super-agent (Router/Workers/pass-through/recovery). Mock model, zero API keys.",
+  "type": "module",
+  "engines": {
+    "node": ">=22.5 <23"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "start": "npm run build && node dist/cli.js",
+    "test": "npm run build && node --test tests/*.test.mjs"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.5",
+    "typescript": "^5.7.2"
+  }
+}

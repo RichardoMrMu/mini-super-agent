@@ -1,0 +1,19 @@
+# build output (run `npm run build` to regenerate)
+dist/
+
+# dependencies
+node_modules/
+
+# runtime state: never commit local task/channel databases or the advisory lock
+state/
+*.db
+LOCK
+
+# debug run logs (evidence/*.jsonl traces are kept as teaching material)
+evidence/*.err.log
+evidence/*.out.log
+*.log
+
+# editor / OS
+.DS_Store
+Thumbs.db
