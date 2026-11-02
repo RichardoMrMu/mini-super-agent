@@ -1,0 +1,25 @@
+{"seq":1,"at":0,"kind":"boot","stage":1,"crashed":false,"recovered":[]}
+{"seq":2,"at":2,"kind":"intake","eventId":"t1:0:message:A","result":"stored","note":"task A queued"}
+{"seq":3,"at":2,"kind":"task.boot","taskId":"A","resumedFrom":0,"recovery":false}
+{"seq":4,"at":37,"kind":"task.step","taskId":"A","step":1,"consumedInputs":[]}
+{"seq":5,"at":69,"kind":"task.step","taskId":"A","step":2,"consumedInputs":[]}
+{"seq":6,"at":69,"kind":"task.terminal","taskId":"A","outcome":"completed"}
+{"seq":7,"at":74,"kind":"reply","receiptId":"r-end-A","conversationId":"t1","messageId":"m-end-A","attempt":1,"channelMode":"naive"}
+{"seq":8,"at":74,"kind":"intake","eventId":"t2:1:message:B","result":"stored","note":"task B queued"}
+{"seq":9,"at":74,"kind":"task.boot","taskId":"B","resumedFrom":0,"recovery":false}
+{"seq":10,"at":100,"kind":"task.step","taskId":"B","step":1,"consumedInputs":[]}
+{"seq":11,"at":100,"kind":"task.terminal","taskId":"B","outcome":"completed"}
+{"seq":12,"at":104,"kind":"reply","receiptId":"r-end-B","conversationId":"t2","messageId":"m-end-B","attempt":1,"channelMode":"naive"}
+{"seq":13,"at":105,"kind":"intake","eventId":"t1:2:followup:A","result":"filtered","note":"pass-through disabled (stage<3)"}
+{"seq":14,"at":105,"kind":"intake","eventId":"t1:3:cancel:A","result":"filtered","note":"nothing to cancel for A"}
+{"seq":15,"at":105,"kind":"intake","eventId":"t3:4:message:C","result":"stored","note":"task C queued"}
+{"seq":16,"at":105,"kind":"task.boot","taskId":"C","resumedFrom":0,"recovery":false}
+{"seq":17,"at":116,"kind":"task.step","taskId":"C","step":1,"consumedInputs":[]}
+{"seq":18,"at":116,"kind":"task.terminal","taskId":"C","outcome":"completed"}
+{"seq":19,"at":120,"kind":"reply","receiptId":"r-end-C","conversationId":"t3","messageId":"m-end-C","attempt":1,"channelMode":"naive"}
+{"seq":20,"at":120,"kind":"intake","eventId":"t1:50:followup:A","result":"filtered","note":"pass-through disabled (stage<3)"}
+{"seq":21,"at":120,"kind":"intake","eventId":"t1:51:message:D","result":"stored","note":"task D queued"}
+{"seq":22,"at":121,"kind":"task.boot","taskId":"D","resumedFrom":0,"recovery":false}
+{"seq":23,"at":147,"kind":"task.step","taskId":"D","step":1,"consumedInputs":[]}
+{"seq":24,"at":147,"kind":"task.terminal","taskId":"D","outcome":"completed"}
+{"seq":25,"at":151,"kind":"reply","receiptId":"r-end-D","conversationId":"t1","messageId":"m-end-D","attempt":1,"channelMode":"naive"}

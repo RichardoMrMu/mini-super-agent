@@ -1,0 +1,24 @@
+{"seq":1,"at":0,"kind":"boot","stage":2,"crashed":false,"recovered":[]}
+{"seq":2,"at":2,"kind":"intake","eventId":"t1:0:message:A","result":"stored","note":"task A queued"}
+{"seq":3,"at":4,"kind":"intake","eventId":"t2:1:message:B","result":"stored","note":"task B queued"}
+{"seq":4,"at":4,"kind":"intake","eventId":"t1:2:followup:A","result":"filtered","note":"pass-through disabled (stage<3)"}
+{"seq":5,"at":33,"kind":"task.boot","taskId":"A","resumedFrom":0,"recovery":false}
+{"seq":6,"at":33,"kind":"task.boot","taskId":"B","resumedFrom":0,"recovery":false}
+{"seq":7,"at":47,"kind":"intake","eventId":"t1:3:cancel:A","result":"stored","note":"cancel intent on A state=running"}
+{"seq":8,"at":48,"kind":"task.step","taskId":"B","step":1,"consumedInputs":[]}
+{"seq":9,"at":48,"kind":"task.terminal","taskId":"B","outcome":"completed"}
+{"seq":10,"at":48,"kind":"intake","eventId":"t3:4:message:C","result":"stored","note":"task C queued"}
+{"seq":11,"at":63,"kind":"task.step","taskId":"A","step":1,"consumedInputs":[]}
+{"seq":12,"at":63,"kind":"task.terminal","taskId":"A","outcome":"cancelled"}
+{"seq":13,"at":68,"kind":"reply","receiptId":"r-end-B","conversationId":"t2","messageId":"m-end-B","attempt":1,"channelMode":"naive"}
+{"seq":14,"at":72,"kind":"reply","receiptId":"r-end-A","conversationId":"t1","messageId":"m-end-A","attempt":1,"channelMode":"naive"}
+{"seq":15,"at":72,"kind":"task.boot","taskId":"C","resumedFrom":0,"recovery":false}
+{"seq":16,"at":79,"kind":"intake","eventId":"t1:50:followup:A","result":"filtered","note":"pass-through disabled (stage<3)"}
+{"seq":17,"at":94,"kind":"intake","eventId":"t1:51:message:D","result":"stored","note":"task D queued"}
+{"seq":18,"at":94,"kind":"task.boot","taskId":"D","resumedFrom":0,"recovery":false}
+{"seq":19,"at":95,"kind":"task.step","taskId":"C","step":1,"consumedInputs":[]}
+{"seq":20,"at":95,"kind":"task.terminal","taskId":"C","outcome":"completed"}
+{"seq":21,"at":114,"kind":"reply","receiptId":"r-end-C","conversationId":"t3","messageId":"m-end-C","attempt":1,"channelMode":"naive"}
+{"seq":22,"at":114,"kind":"task.step","taskId":"D","step":1,"consumedInputs":[]}
+{"seq":23,"at":114,"kind":"task.terminal","taskId":"D","outcome":"completed"}
+{"seq":24,"at":129,"kind":"reply","receiptId":"r-end-D","conversationId":"t1","messageId":"m-end-D","attempt":1,"channelMode":"naive"}
