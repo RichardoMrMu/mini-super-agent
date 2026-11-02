@@ -1,0 +1,14 @@
+# scenario=crash-claim
+# first exit=13
+# second exit=0
+
+--- first run (crashed) stdout ---
+
+--- second run (recovered) stdout ---
+{"seq":1,"at":8,"kind":"boot","stage":4,"crashed":true,"recovered":["A: assignment interrupted, task re-queued from step 1"]}
+{"seq":2,"at":15,"kind":"task.boot","taskId":"A","resumedFrom":1,"recovery":true}
+{"seq":3,"at":17,"kind":"intake","eventId":"t1:0:message:A","result":"duplicate","note":"eventId=t1:0:message:A already stored"}
+{"seq":4,"at":45,"kind":"task.step","taskId":"A","step":2,"consumedInputs":["in:t1:30:followup:A"]}
+{"seq":5,"at":45,"kind":"task.terminal","taskId":"A","outcome":"completed"}
+{"seq":6,"at":46,"kind":"intake","eventId":"t1:30:followup:A","result":"duplicate","note":"eventId=t1:30:followup:A already stored"}
+{"seq":7,"at":69,"kind":"reply","receiptId":"r-end-A","conversationId":"t1","messageId":"m-end-A","attempt":1,"channelMode":"naive"}

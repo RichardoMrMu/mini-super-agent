@@ -1,0 +1,24 @@
+# scenario=crash-send
+# first exit=13
+# second exit=0
+
+--- first run (crashed) stdout ---
+
+--- second run (recovered) stdout ---
+{"seq":1,"at":10,"kind":"boot","stage":4,"crashed":true,"recovered":["A: cancelling->cancelled (no restart)","1 orphaned effect(s) reset to due"]}
+{"seq":2,"at":17,"kind":"task.boot","taskId":"C","resumedFrom":0,"recovery":false}
+{"seq":3,"at":31,"kind":"reply","receiptId":"r-end-B","conversationId":"t2","messageId":"m-end-B","attempt":2,"channelMode":"naive"}
+{"seq":4,"at":31,"kind":"intake","eventId":"t1:0:message:A","result":"duplicate","note":"eventId=t1:0:message:A already stored"}
+{"seq":5,"at":41,"kind":"task.step","taskId":"C","step":1,"consumedInputs":[]}
+{"seq":6,"at":42,"kind":"task.terminal","taskId":"C","outcome":"completed"}
+{"seq":7,"at":42,"kind":"intake","eventId":"t2:1:message:B","result":"duplicate","note":"eventId=t2:1:message:B already stored"}
+{"seq":8,"at":55,"kind":"reply","receiptId":"r-end-C","conversationId":"t3","messageId":"m-end-C","attempt":1,"channelMode":"naive"}
+{"seq":9,"at":59,"kind":"intake","eventId":"t1:2:followup:A","result":"duplicate","note":"eventId=t1:2:followup:A already stored"}
+{"seq":10,"at":75,"kind":"intake","eventId":"t1:3:cancel:A","result":"duplicate","note":"eventId=t1:3:cancel:A already stored"}
+{"seq":11,"at":76,"kind":"intake","eventId":"t3:4:message:C","result":"duplicate","note":"eventId=t3:4:message:C already stored"}
+{"seq":12,"at":109,"kind":"intake","eventId":"t1:50:followup:A","result":"filtered","note":"append filtered: task cancelled, already terminating"}
+{"seq":13,"at":124,"kind":"intake","eventId":"t1:51:message:D","result":"stored","note":"task D queued"}
+{"seq":14,"at":140,"kind":"task.boot","taskId":"D","resumedFrom":0,"recovery":false}
+{"seq":15,"at":157,"kind":"task.step","taskId":"D","step":1,"consumedInputs":[]}
+{"seq":16,"at":157,"kind":"task.terminal","taskId":"D","outcome":"completed"}
+{"seq":17,"at":180,"kind":"reply","receiptId":"r-end-D","conversationId":"t1","messageId":"m-end-D","attempt":1,"channelMode":"naive"}

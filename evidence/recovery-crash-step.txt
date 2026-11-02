@@ -1,0 +1,23 @@
+# scenario=crash-step
+# first exit=13
+# second exit=0
+
+--- first run (crashed) stdout ---
+
+--- second run (recovered) stdout ---
+{"seq":1,"at":9,"kind":"boot","stage":4,"crashed":true,"recovered":["C: assignment interrupted, task re-queued from step 0"]}
+{"seq":2,"at":18,"kind":"task.boot","taskId":"C","resumedFrom":0,"recovery":false}
+{"seq":3,"at":20,"kind":"intake","eventId":"t1:0:message:A","result":"duplicate","note":"eventId=t1:0:message:A already stored"}
+{"seq":4,"at":22,"kind":"intake","eventId":"t2:1:message:B","result":"duplicate","note":"eventId=t2:1:message:B already stored"}
+{"seq":5,"at":25,"kind":"intake","eventId":"t1:2:followup:A","result":"duplicate","note":"eventId=t1:2:followup:A already stored"}
+{"seq":6,"at":41,"kind":"intake","eventId":"t1:3:cancel:A","result":"duplicate","note":"eventId=t1:3:cancel:A already stored"}
+{"seq":7,"at":47,"kind":"task.step","taskId":"C","step":1,"consumedInputs":[]}
+{"seq":8,"at":47,"kind":"task.terminal","taskId":"C","outcome":"completed"}
+{"seq":9,"at":48,"kind":"intake","eventId":"t3:4:message:C","result":"duplicate","note":"eventId=t3:4:message:C already stored"}
+{"seq":10,"at":72,"kind":"reply","receiptId":"r-end-C","conversationId":"t3","messageId":"m-end-C","attempt":1,"channelMode":"naive"}
+{"seq":11,"at":88,"kind":"intake","eventId":"t1:50:followup:A","result":"duplicate","note":"eventId=t1:50:followup:A already filtered"}
+{"seq":12,"at":108,"kind":"intake","eventId":"t1:51:message:D","result":"stored","note":"task D queued"}
+{"seq":13,"at":127,"kind":"task.boot","taskId":"D","resumedFrom":0,"recovery":false}
+{"seq":14,"at":156,"kind":"task.step","taskId":"D","step":1,"consumedInputs":[]}
+{"seq":15,"at":157,"kind":"task.terminal","taskId":"D","outcome":"completed"}
+{"seq":16,"at":181,"kind":"reply","receiptId":"r-end-D","conversationId":"t1","messageId":"m-end-D","attempt":1,"channelMode":"naive"}

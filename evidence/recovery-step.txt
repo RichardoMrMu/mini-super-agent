@@ -1,0 +1,24 @@
+# scenario=crash-step
+# first exit=13
+# second exit=0
+
+--- first run (crashed) stdout ---
+
+--- second run (recovered) stdout ---
+{"seq":1,"at":7,"kind":"boot","stage":4,"crashed":true,"recovered":["C: assignment interrupted, task re-queued from step 0"]}
+{"seq":2,"at":15,"kind":"task.boot","taskId":"C","resumedFrom":0,"recovery":false}
+{"seq":3,"at":29,"kind":"reply","receiptId":"r-end-A","conversationId":"t1","messageId":"m-end-A","attempt":1,"channelMode":"naive"}
+{"seq":4,"at":30,"kind":"intake","eventId":"t1:0:message:A","result":"duplicate","note":"eventId=t1:0:message:A already stored"}
+{"seq":5,"at":39,"kind":"task.step","taskId":"C","step":1,"consumedInputs":[]}
+{"seq":6,"at":40,"kind":"task.terminal","taskId":"C","outcome":"completed"}
+{"seq":7,"at":40,"kind":"intake","eventId":"t2:1:message:B","result":"duplicate","note":"eventId=t2:1:message:B already stored"}
+{"seq":8,"at":53,"kind":"reply","receiptId":"r-end-C","conversationId":"t3","messageId":"m-end-C","attempt":1,"channelMode":"naive"}
+{"seq":9,"at":57,"kind":"intake","eventId":"t1:2:followup:A","result":"duplicate","note":"eventId=t1:2:followup:A already stored"}
+{"seq":10,"at":59,"kind":"intake","eventId":"t1:3:cancel:A","result":"duplicate","note":"eventId=t1:3:cancel:A already stored"}
+{"seq":11,"at":74,"kind":"intake","eventId":"t3:4:message:C","result":"duplicate","note":"eventId=t3:4:message:C already stored"}
+{"seq":12,"at":108,"kind":"intake","eventId":"t1:50:followup:A","result":"filtered","note":"append filtered: task cancelled, already terminating"}
+{"seq":13,"at":123,"kind":"intake","eventId":"t1:51:message:D","result":"stored","note":"task D queued"}
+{"seq":14,"at":139,"kind":"task.boot","taskId":"D","resumedFrom":0,"recovery":false}
+{"seq":15,"at":155,"kind":"task.step","taskId":"D","step":1,"consumedInputs":[]}
+{"seq":16,"at":156,"kind":"task.terminal","taskId":"D","outcome":"completed"}
+{"seq":17,"at":178,"kind":"reply","receiptId":"r-end-D","conversationId":"t1","messageId":"m-end-D","attempt":1,"channelMode":"naive"}
